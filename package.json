@@ -1,8 +1,8 @@
 {
   "name": "game-icons-react",
-  "version": "0.1.0",
-  "type": "module",
+  "version": "0.1.1",
   "license": "MIT",
+  "type": "module",
   "dependencies": {
     "react": "^18.2.0"
   },

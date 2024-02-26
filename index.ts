@@ -26,4 +26,9 @@ for (const author of authors) {
     await fs.writeFile(dest, comp);
     await fs.appendFile(indexFile, `export * from './${iconName}';\r`)
   }
+
+  // copy over package.json, README.md, and LICENSE
+  for (const file of ['package.json', 'README.md', 'LICENSE']) {
+    await fs.copyFile(path.join('./', file), path.join('./dist', file))
+  }
 }
