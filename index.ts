@@ -12,7 +12,9 @@ for (const author of authors) {
   const srcDir = `./icons/${author.name}`;
   await fs.mkdir(outDir, { recursive: true }).catch(_ => console.log(`Directory already exists: ${outDir}`));
   
+  // convert all icons
   const icons = (await fs.readdir(srcDir, { encoding: 'utf-8' }));
+  const indexFile = path.join(outDir, 'index.tsx');
   for (const icon of icons) {
     const fileName = path.basename(icon);
     const iconName = rename(fileName);
@@ -22,5 +24,6 @@ for (const author of authors) {
     const root = await parse(svg);
     const comp = createReactIcon(iconName, root.attributes, root.children.at(1)?.attributes['d'] || '');
     await fs.writeFile(dest, comp);
+    await fs.appendFile(indexFile, `export * from './${iconName}';\r`)
   }
 }
