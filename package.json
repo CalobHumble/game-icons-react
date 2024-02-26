@@ -1,16 +1,26 @@
 {
   "name": "game-icons-react",
-  "module": "index.ts",
+  "version": "0.1.0",
   "type": "module",
+  "dependencies": {
+    "react": "^18.2.0"
+  },
   "devDependencies": {
     "@types/lodash.upperfirst": "^4.3.9",
     "@types/react": "^18.2.58",
     "bun-types": "latest",
     "lodash.upperfirst": "^4.3.1",
-    "react": "^18.2.0",
     "svgson": "^5.3.1"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "author": {
+    "name": "Calob Humble",
+    "email": "humble@calob.dev",
+    "url": "http://calob.dev"
+  },
+  "repository": {
+    "url": "https://github.com/CalobHumble/game-icons-react"
   }
 }

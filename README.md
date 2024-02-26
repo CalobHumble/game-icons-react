@@ -1,15 +1,36 @@
 # game-icons-react
+> game-icons.net, converted to typed react icon components
 
-To install dependencies:
+## installation
 
-```bash
-bun install
+### npm
+`npm install game-icons-react`
+
+### yarn
+`yarn add game-icons-react`
+
+### bun
+`bun add game-icons-react`
+
+## usage
+
+### properties
+each icon has a `color` and `size` property for simple inline manipulation of the icons presentation.
+
+### example
+```ts
+import { Sheep } from 'game-icons-react/delapouite';
+
+export function BlackSheep() {
+  return <Sheep size={24} color='#0e0e0e' />
+}
 ```
 
-To run:
+### a note on names
+Some of the original icon names start with a number.  As you can not have a JavaScript variable start with a number, these names are swapped to have the number come last in the name. (e.g. `3d-glasses.svg` becomes `Glasses3d`)
 
-```bash
-bun run index.ts
-```
+## library license
+This library is released under the [MIT License](https://opensource.org/license/mit).  A local copy of which can by found in [LICENSE](./license)
 
-This project was created using `bun init` in bun v1.0.14. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+## icon licensing
+Please see [icons/license.txt](./icons/license.txt) for a list of icon designers included with this package.  All icons are released under [Creative Commons 3.0 BY](https://creativecommons.org/licenses/by/3.0/) or [CC0](https://creativecommons.org/publicdomain/zero/1.0/).  It is heavliy encourged that you give credit to all authors, regardless of license, when using these icons.  You can find their names as the parent directory of the icon you use.
