@@ -1,8 +1,26 @@
 {
   "name": "game-icons-react",
-  "version": "0.1.1",
+  "version": "0.1.1-t0",
   "license": "MIT",
   "type": "module",
+  "main": "./dist/index.ts",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "./dist"
+  ],
+  "keyworks": [
+    "react",
+    "icons",
+    "svg",
+    "rpg",
+    "game-icons",
+    "interface",
+    "UI"
+  ],
+  "scripts": {
+    "prepack": "bun run index.ts",
+    "sync": "git submodule update --remote --init --force --recursive"
+  },
   "dependencies": {
     "react": "^18.2.0"
   },
