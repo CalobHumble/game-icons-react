@@ -1,14 +1,16 @@
 {
   "name": "game-icons-react",
-  "version": "0.1.1-t0",
+  "version": "0.1.1-t1",
   "license": "MIT",
   "type": "module",
-  "main": "./dist/index.ts",
   "types": "./dist/index.d.ts",
   "files": [
     "./dist"
   ],
-  "keyworks": [
+  "exports": {
+    "./*": "./dist/*"
+  },
+  "keywords": [
     "react",
     "icons",
     "svg",
