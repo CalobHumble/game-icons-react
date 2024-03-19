@@ -1,6 +1,6 @@
 {
   "name": "game-icons-react",
-  "version": "0.1.1-t4",
+  "version": "0.1.1-t5",
   "license": "MIT",
   "type": "module",
   "files": [
@@ -19,7 +19,7 @@
     "UI"
   ],
   "scripts": {
-    "prepack": "bun run src/build.ts && bunx tsc",
+    "build": "bun run src/build.ts && bunx tsc",
     "sync": "git submodule update --remote --init --force --recursive",
     "clean": "rm -rf build dist"
   },
