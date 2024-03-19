@@ -1,9 +1,8 @@
 {
   "name": "game-icons-react",
-  "version": "0.1.1-t1",
+  "version": "0.1.1-t4",
   "license": "MIT",
   "type": "module",
-  "types": "./dist/index.d.ts",
   "files": [
     "./dist"
   ],
@@ -20,13 +19,15 @@
     "UI"
   ],
   "scripts": {
-    "prepack": "bun run index.ts",
-    "sync": "git submodule update --remote --init --force --recursive"
+    "prepack": "bun run src/build.ts && bunx tsc",
+    "sync": "git submodule update --remote --init --force --recursive",
+    "clean": "rm -rf build dist"
   },
   "dependencies": {
     "react": "^18.2.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.6.1",
     "@types/lodash.upperfirst": "^4.3.9",
     "@types/react": "^18.2.58",
     "bun-types": "latest",
