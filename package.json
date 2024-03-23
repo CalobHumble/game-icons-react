@@ -1,6 +1,6 @@
 {
   "name": "game-icons-react",
-  "version": "0.1.2",
+  "version": "0.1.2-beta",
   "description": "Cross-platform SVG icons for react native and web, from game-icons.net",
   "license": "MIT",
   "sideEffects": false,
