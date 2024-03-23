@@ -1,13 +1,46 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { parse } from 'svgson';
-import { createReactIcon } from './templates/icon';
-import { rename } from './rename';
+import upperFirst from 'lodash.upperfirst';
 
-const buildDir = './build';
+const rename = (filename: string): string => {
+  const base = filename.split('.').at(0);
+  const parts = base?.split('-') ?? [];
+  if (parts?.[0].match(/^\d/)) {
+    const first = parts.shift() ?? '';
+    parts.push(first);
+  }
+  return parts.map(part => upperFirst(part)).join('');
+};
+
+const createReactIcon = (iconName: string, path: string): string => (
+`/// GENERATE FILE
+import React, { memo } from 'react';
+import { Svg, Path } from 'react-native-svg';
+import type { IconProps } from '../props';
+
+
+const Icon = (props: IconProps): React.ReactElement => {
+  const {
+    color = 'black',
+    size = 24,
+    ...otherProps
+  } = props;
+
+  return <Svg width={size} height={size} viewBox="0 0 512 512" {...otherProps} >
+    <Path fill={color} d="${path}" />
+  </Svg>;
+}
+
+Icon.displayName = '${iconName}';
+
+export const ${iconName} = memo<IconProps>(Icon);`);
+
+const buildDir = './src';
 
 // process icons by author
 const authors = (await fs.readdir('./icons', { encoding: 'utf-8', withFileTypes: true })).filter(f => f.isDirectory() && f.name !== '.gitignore');
+
 
 for (const author of authors) {
   const outDir = path.join(buildDir, author.name);
@@ -30,5 +63,3 @@ for (const author of authors) {
   }
 }
 
-// copy over IconBase
-await fs.copyFile('./src/IconBase.tsx', './build/IconBase.tsx');

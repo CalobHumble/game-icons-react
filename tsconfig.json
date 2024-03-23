@@ -1,11 +1,10 @@
 {
-  "exclude": ["./src", "./dist"],
+  "exclude": ["dist", "bin"],
   "compilerOptions": {
     "lib": ["ES2022"],
     "module": "es2022",
     "target": "es2022",
-    "moduleResolution": "bundler",
-    "moduleDetection": "force",
+    "moduleResolution": "node",
     "composite": true,
     "strict": true,
     "downlevelIteration": true,
@@ -17,7 +16,11 @@
     "types": [
       "bun-types" // add Bun global
     ],
-    "rootDir": "./build",
-    "outDir": "./dist",
-  }
+    "baseUrl": ".",
+    "rootDir": "src",
+    "outDir": "dist",
+  },
+  "typeAcquisition": {
+    "enable": true
+  },
 }

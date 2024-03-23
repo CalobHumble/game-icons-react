@@ -1,14 +1,16 @@
 {
   "name": "game-icons-react",
-  "version": "0.1.1-t5",
+  "version": "0.1.2",
+  "description": "Cross-platform SVG icons for react native and web, from game-icons.net",
   "license": "MIT",
-  "type": "module",
+  "sideEffects": false,
+  "source": "src/index.ts",
+  "types": "dist/types/index.d.ts",
+  "main": "dist/cjs",
+  "module": "dist/esm",
   "files": [
-    "./dist"
+    "dist"
   ],
-  "exports": {
-    "./*": "./dist/*"
-  },
   "keywords": [
     "react",
     "icons",
@@ -23,19 +25,20 @@
     "sync": "git submodule update --remote --init --force --recursive",
     "clean": "rm -rf build dist"
   },
-  "dependencies": {
-    "react": "^18.2.0"
-  },
   "devDependencies": {
     "@biomejs/biome": "^1.6.1",
     "@types/lodash.upperfirst": "^4.3.9",
     "@types/react": "^18.2.58",
     "bun-types": "latest",
     "lodash.upperfirst": "^4.3.1",
-    "svgson": "^5.3.1"
+    "react": "^18.2.0",
+    "react-native-svg": "^15.1.0",
+    "svgson": "^5.3.1",
+    "typescript": "^5.0.0"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
+    "react": "*",
+    "react-native-svg": ">=12"
   },
   "author": {
     "name": "Calob Humble",
