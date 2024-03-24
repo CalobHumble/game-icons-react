@@ -40,7 +40,7 @@ const buildDir = './src';
 
 // process icons by author
 const authors = (await fs.readdir('./icons', { encoding: 'utf-8', withFileTypes: true })).filter(f => f.isDirectory() && f.name !== '.gitignore');
-
+const rootIndex = path.join(buildDir, 'index.ts');
 
 for (const author of authors) {
   const outDir = path.join(buildDir, author.name);
@@ -59,7 +59,9 @@ for (const author of authors) {
     const root = await parse(svg);
     const comp = createReactIcon(iconName, root.children.at(1)?.attributes.d || '');
     await fs.writeFile(dest, comp);
-    await fs.appendFile(indexFile, `export * from './${iconName}';\r`)
+    await fs.appendFile(indexFile, `export * from './${iconName}';\r`);
   }
+
+  await fs.appendFile(rootIndex, `export * as ${rename(author.name)} from './${author.name}';\r`);
 }
 
