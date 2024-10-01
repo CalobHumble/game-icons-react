@@ -1,13 +1,13 @@
 {
   "name": "game-icons-react",
-  "version": "0.1.4",
+  "version": "0.1.4-p",
   "description": "Cross-platform SVG icons for react native and web, from game-icons.net",
   "license": "MIT",
   "sideEffects": false,
   "source": "src/index.ts",
-  "types": "dist/types/index.d.ts",
-  "main": "dist/cjs",
-  "module": "dist/esm",
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "files": [
     "dist"
   ],
