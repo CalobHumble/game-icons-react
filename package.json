@@ -1,6 +1,6 @@
 {
   "name": "game-icons-react",
-  "version": "0.1.4-p",
+  "version": "0.1.5",
   "description": "Cross-platform SVG icons for react native and web, from game-icons.net",
   "license": "MIT",
   "sideEffects": false,
@@ -21,9 +21,9 @@
     "UI"
   ],
   "scripts": {
-    "build": "bun run bin/build.ts && bunx tsc",
+    "build": "bun run bin/build.ts",
     "sync": "git submodule update --remote --init --force --recursive",
-    "clean": "rm -rf build dist"
+    "clean": "rm -rf build dist src/*/ src/index.ts"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.6.1",
